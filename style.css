@@ -14,12 +14,13 @@ h1 {
 }
 
 .form-container {
+  display: none;
   position: absolute;
   background-color: rgba(91, 91, 91, 0.308);
   height: 100%;
   width: 100%;
-
-  display: flex;
+  /* translate: 200px; */
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }

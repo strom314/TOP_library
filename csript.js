@@ -1,6 +1,7 @@
 const library = [];
 const bookContainer = document.querySelector(".book-container");
 const newBookBtn = document.querySelector("#new");
+const formContainer = document.querySelector(".form-container");
 
 function Book(name, author, pages, read) {
   this.name = name;
@@ -48,5 +49,10 @@ function displayBooks() {
 displayBooks();
 
 newBookBtn.addEventListener("click", () => {
-
+  console.log("cc");
+  if (formContainer.style.display === "flex") {
+    formContainer.style.display = "none";
+  } else {
+    formContainer.style.display = "flex";
+  }
 });
