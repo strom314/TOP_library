@@ -1,4 +1,5 @@
 const library = [];
+const bookContainer = document.querySelector(".book-container");
 
 function Book(name, author, pages, read) {
   this.name = name;
@@ -14,6 +15,31 @@ function addBookToLibrary(name, author, pages, read) {
   library.push(book);
 }
 
-addBookToLibrary("Empire in black and gold", "Adrian Tschaikovsky", 388, "read");
+addBookToLibrary(
+  "Empire in black and gold",
+  "Adrian Tschaikovsky",
+  388,
+  "read"
+);
 addBookToLibrary("The air war", "Adrian Tschaikovsky", 543, "not read");
 addBookToLibrary("Blood of the mantis", "Adrian Tschaikovsky", 453, "read");
+
+function displayBooks() {
+  library.forEach((book) => {
+    let bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+
+    let name = document.createElement("h2");
+    name.textContent = book.name;
+    let author = document.createElement("p");
+    author.textContent = book.author;
+    let pages = document.createElement("p");
+    pages.textContent = book.pages;
+    let read = document.createElement("p");
+    read = book.read;
+
+    bookCard.append(name, author, pages, read);
+    bookContainer.appendChild(bookCard);
+  });
+}
+displayBooks();
