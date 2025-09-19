@@ -1,5 +1,6 @@
 const library = [];
 const bookContainer = document.querySelector(".book-container");
+const newBookBtn = document.querySelector("#new");
 
 function Book(name, author, pages, read) {
   this.name = name;
@@ -25,6 +26,8 @@ addBookToLibrary("The air war", "Adrian Tschaikovsky", 543, "not read");
 addBookToLibrary("Blood of the mantis", "Adrian Tschaikovsky", 453, "read");
 
 function displayBooks() {
+  bookContainer.innerHTML = "";
+
   library.forEach((book) => {
     let bookCard = document.createElement("div");
     bookCard.classList.add("book-card");
@@ -36,10 +39,14 @@ function displayBooks() {
     let pages = document.createElement("p");
     pages.textContent = book.pages;
     let read = document.createElement("p");
-    read = book.read;
+    read.textContent = book.read;
 
     bookCard.append(name, author, pages, read);
     bookContainer.appendChild(bookCard);
   });
 }
 displayBooks();
+
+newBookBtn.addEventListener("click", () => {
+
+});
