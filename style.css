@@ -1,35 +1,131 @@
 body {
   margin: 0;
   padding: 0;
+  text-align: center;
+  background-color: #ede0d4;
 }
 
 header {
-  background-color: peachpuff;
-  text-align: center;
+  background-color: #b08968;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   height: 100px;
 }
 h1 {
   margin: 0;
+  font-size: 2.5rem;
+}
+h2 {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 2rem;
+  margin: 10px;
+}
+p {
+  margin: 0;
+  font-size: 1.1rem;
 }
 
+.book-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  gap: 40px;
+  padding: 0px 5%;
+}
+.book-card {
+  background-color: #ddb892;
+  border-radius: 8px;
+  padding: 20px 40px;
+  box-shadow: 5px 5px 12px 0px rgba(0, 0, 0, 0.2);
+
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
+}
+.book-card button {
+  border: none;
+  border-radius: 14px;
+  padding: 5px;
+  background-color: #b08968;
+  font-size: 1rem;
+}
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  grid-row: 6/7;
+}
+
+button:hover {
+  background-color: #97765a;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.21);
+}
+
+#new {
+  margin: 40px;
+  height: 40px;
+  width: 180px;
+
+  border-radius: 12px;
+  border: none;
+
+  background-color: #9c6644;
+  color: #ede0d4;
+  font-size: 1.2rem;
+}
 .form-container {
   display: none;
   position: absolute;
-  background-color: rgba(91, 91, 91, 0.308);
+  background-color: rgba(0, 0, 0, 0.3);
   height: 100%;
   width: 100%;
   /* translate: 200px; */
-  /* display: flex; */
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 form {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around; */
 
-  border: 1px black solid;
-  padding: 30px;
-  border-radius: 8px;
+  display: grid;
+
+  height: 40vh;
+  width: 20vw;
+
+  background-color: #ddb892;
+  padding: 30px 50px;
+  border-radius: 16px;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.21);
+}
+form div {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-self: flex-start;
+  flex: 0;
+}
+input {
+  flex: 1;
+}
+form button {
+  border: none;
+  border-radius: 12px;
+  background-color: #97765a;
+  padding: 0px;
+  width: 50%;
+  flex: 0;
+  font-size: 1.1rem;
+  justify-self: center;
 }

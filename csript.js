@@ -39,9 +39,12 @@ function displayBooks() {
     let author = document.createElement("p");
     author.textContent = book.author;
     let pages = document.createElement("p");
-    pages.textContent = book.pages;
+    pages.textContent = `${book.pages} pages`;
     let read = document.createElement("p");
     read.textContent = book.read;
+
+    let buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("button-container");
 
     bookCard.setAttribute("data-id", book.id);
 
@@ -50,7 +53,12 @@ function displayBooks() {
     deleteBtn.addEventListener("click", removeBook);
     deleteBtn.setAttribute("data-id", book.id);
 
-    bookCard.append(name, author, pages, read, deleteBtn);
+    let toggleRead = document.createElement("button");
+    toggleRead.textContent = "toggle read";
+    toggleRead.addEventListener("click", () => book.changeRead());
+
+    buttonContainer.append(deleteBtn, toggleRead);
+    bookCard.append(name, author, pages, read, buttonContainer);
     bookContainer.appendChild(bookCard);
   });
 }
@@ -68,6 +76,16 @@ function removeBook(event) {
 }
 
 displayBooks();
+
+Book.prototype.changeRead = function () {
+  if (this.read === "read") {
+    this.read = "not read";
+  } else {
+    this.read = "read";
+  }
+  displayBooks();
+  console.log("cc");
+};
 
 newBookBtn.addEventListener("click", () => {
   console.log("cc");
