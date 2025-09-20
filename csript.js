@@ -1,6 +1,7 @@
 const library = [];
 const bookContainer = document.querySelector(".book-container");
 const newBookBtn = document.querySelector("#new");
+const submitBtn = document.querySelector("#submit");
 const formContainer = document.querySelector(".form-container");
 
 function Book(name, author, pages, read) {
@@ -55,4 +56,23 @@ newBookBtn.addEventListener("click", () => {
   } else {
     formContainer.style.display = "flex";
   }
+});
+
+submitBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const bookForm = document.forms["add-form"];
+  let name = bookForm.name.value;
+  let author = bookForm.author.value;
+  let pages = bookForm.pages.value;
+  let read = "";
+  if (bookForm.read.checked) {
+    read = "read";
+  } else {
+    read = "not read";
+  }
+
+  addBookToLibrary(name, author, pages, read);
+  formContainer.style.display = "none";
+  displayBooks();
 });
