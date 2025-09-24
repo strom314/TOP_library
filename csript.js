@@ -4,13 +4,34 @@ const newBookBtn = document.querySelector("#new");
 const submitBtn = document.querySelector("#submit");
 const formContainer = document.querySelector(".form-container");
 
-function Book(name, author, pages, read) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// function Book(name, author, pages, read) {
+//   this.name = name;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
 
-  this.id = crypto.randomUUID();
+//   this.id = crypto.randomUUID();
+// }
+
+class Book {
+  constructor(name, author, pages, read) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+
+    this.id = crypto.randomUUID();
+  }
+
+  changeRead() {
+    if (this.read === "read") {
+      this.read = "not read";
+    } else {
+      this.read = "read";
+    }
+    displayBooks();
+    console.log("cc");
+  };
 }
 
 function addBookToLibrary(name, author, pages, read) {
@@ -18,12 +39,7 @@ function addBookToLibrary(name, author, pages, read) {
   library.push(book);
 }
 
-addBookToLibrary(
-  "Empire in black and gold",
-  "Adrian Tschaikovsky",
-  388,
-  "read"
-);
+addBookToLibrary("Empire in black and gold", "Adrian Tschaikovsky", 388, "read");
 addBookToLibrary("The air war", "Adrian Tschaikovsky", 543, "not read");
 addBookToLibrary("Blood of the mantis", "Adrian Tschaikovsky", 453, "read");
 
@@ -77,15 +93,7 @@ function removeBook(event) {
 
 displayBooks();
 
-Book.prototype.changeRead = function () {
-  if (this.read === "read") {
-    this.read = "not read";
-  } else {
-    this.read = "read";
-  }
-  displayBooks();
-  console.log("cc");
-};
+
 
 newBookBtn.addEventListener("click", () => {
   console.log("cc");
